@@ -8,7 +8,6 @@
     * {
         box-sizing: border-box;
     }
-
     body {
         font-family: "Nunito", sans-serif;
         min-height: 100vh;
@@ -16,7 +15,6 @@
         justify-content: center;
         align-items: center;
     }
-
     .btn {
         padding: 20px 50px;
         display: inline-block;
@@ -29,7 +27,6 @@
     .btn:hover {
         background: #dc1029;
     }
-
     .overlay {
         width: 100%;
         min-height: 100vh;
@@ -80,55 +77,18 @@
         margin-top: 0;
     }
 </style>
-<body>
-<a href="#" class='btn open-modal' data-modal="#modal1">Open Modal</a>
-<div class='modal' id='modal1'>
-    <div class='content'>
-        <h1 class='title'>This is a modal</h1>
-        <p>
-            这里是一些文字.
-        </p>
-        <a class='btn close-modal' data-modal="#modal1" href="#">K Bye</a>
-    </div>
-</div>
-<script>
-    $(".modal").each( function(){
-        $(this).wrap('<div class="overlay"></div>')
-    });
-    $(".open-modal").on('click', function(e){
-        e.preventDefault();
-        e.stopImmediatePropagation;
-        var $this = $(this),
-            modal = $($this).data("modal");
-        $(modal).parents(".overlay").addClass("open");
-        setTimeout( function(){
-            $(modal).addClass("open");
-        }, 350);
-        $(document).on('click', function(e){
-            var target = $(e.target);
-
-            if ($(target).hasClass("overlay")){
-                $(target).find(".modal").each( function(){
-                    $(this).removeClass("open");
-                });
-                setTimeout( function(){
-                    $(target).removeClass("open");
-                }, 350);
-            }
-        });
-
-    });
-    $(".close-modal").on('click', function(e){
-        e.preventDefault();
-        e.stopImmediatePropagation;
-        var $this = $(this),
-            modal = $($this).data("modal");
-        $(modal).removeClass("open");
-        setTimeout( function(){
-            $(modal).parents(".overlay").removeClass("open");
-        }, 350);
-
-    });
-</script>
-</body>
+  <body>
+  <a href="#" class='btn open-modal' data-modal="#modal1">Open Modal</a>
+  <div class='modal' id='modal1'>
+      <div class='content'>
+          <h1 class='title'>This is a modal</h1>
+          <p>
+              这里是一些文字.
+          </p>
+          <a class='btn close-modal' data-modal="#modal1" href="#">K Bye</a>
+      </div>
+  </div>
+  <script src="jquery.min.js"></script>
+  <script src="mian.js"></script>
+  </body>
 </html>
